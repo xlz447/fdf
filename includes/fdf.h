@@ -25,8 +25,8 @@
 # include "../libft/libft.h"
 # include "../libft/get_next_line.h"
 
-# define WIN_H 600
-# define WIN_W 800
+# define WIN_H 864
+# define WIN_W 1536
 # define PI 3.14159265
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648

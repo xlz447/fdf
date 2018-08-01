@@ -47,10 +47,8 @@ void		calibrate(t_mlx *m)
 	float	s[3];
 	float	sc;
 
-	if ((float)WIN_W / (m->col - 1) < (float)WIN_H / (m->row - 1))
-		sc = (float)WIN_W / (m->col - 1);
-	else
-		sc = (float)WIN_H / (m->row - 1);
+	sc = (float)WIN_W / (WIN_W / (m->col - 1) <= WIN_H / (m->row - 1) ?
+		(m->col - 1) : (m->row - 1));
 	r = -1;
 	while (++r < m->row)
 	{
@@ -59,7 +57,9 @@ void		calibrate(t_mlx *m)
 		{
 			s[0] = sc * (m->map[r][c].x - m->map[m->row / 2][m->col / 2].x);
 			s[1] = sc * (m->map[r][c].y - m->map[m->row / 2][m->col / 2].y);
-			s[2] = WIN_H * 0.1 / (m->max_h - m->min_h) * m->map[r][c].z;
+			s[2] = 0;
+			if (m->max_h != m->min_h)
+				s[2] = WIN_H * 0.1 / (m->max_h - m->min_h) * m->map[r][c].z;
 			m->map[r][c].xt = s[0] * cos(m->ang) - (s[1] * sin(m->ang) +
 					s[2] * cos(m->ang)) * sin(m->ang);
 			m->map[r][c].yt = s[1] * cos(m->ang) - s[2] * sin(m->ang);

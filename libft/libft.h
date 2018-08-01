@@ -89,5 +89,6 @@ void			ft_lstrev(t_list **alst);
 void			ft_lstsort(t_list **alst, int (*cmp)());
 t_list			*ft_lstat(t_list *alst, unsigned int nbr);
 void			ft_errorexit(char *messege);
+void			ft_free_2d(void **to_free);
 
 #endif

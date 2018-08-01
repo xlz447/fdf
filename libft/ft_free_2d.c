@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_free_2d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xzhu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/16 19:55:53 by xzhu              #+#    #+#             */
-/*   Updated: 2018/07/16 19:55:56 by xzhu             ###   ########.fr       */
+/*   Created: 2018/07/30 23:52:41 by xzhu              #+#    #+#             */
+/*   Updated: 2018/07/30 23:53:00 by xzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1024
-# define FD_SIZE 4864
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+void		ft_free_2d(void **to_free)
+{
+	int i;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = -1;
+	while (to_free[++i])
+		free(to_free[i]);
+	free(to_free);
+}
