@@ -53,21 +53,22 @@ typedef struct	s_xyz
 
 typedef struct	s_mlx
 {
-	void		*mlx;
-	void		*win;
-	float		ang;
-	int			col;
-	int			row;
-	int			max_h;
-	int			min_h;
-	float		max_x;
-	float		min_x;
-	float		max_y;
-	float		min_y;
-	float		scale;
-	int			center_c;
-	int			center_r;
-	t_xyz		**map;
+	void			*mlx;
+	void			*win;
+	float			ang;
+	int				col;
+	int				row;
+	int				max_h;
+	int				min_h;
+	float			max_x;
+	float			min_x;
+	float			max_y;
+	float			min_y;
+	float			scale;
+	int				center_c;
+	int				center_r;
+	t_xyz			**map;
+	unsigned int	color;
 }				t_mlx;
 
 void			calibrate(t_mlx *m);

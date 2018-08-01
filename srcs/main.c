@@ -111,8 +111,16 @@ int			main(int argc, char **argv)
 {
 	t_mlx	m;
 
-	if (argc != 2)
-		ft_errorexit("usage: ./fdf <filename>");
+	if (argc != 3 && argc != 2)
+		ft_errorexit("usage: ./fdf <filename> [0x0x87ceeb]");
+	if (argc == 3)
+	{
+		m.color = (unsigned int)ft_atoi(argv[2]);
+		if (m.color == 0)
+			m.color = 0x87ceeb;
+	}
+	else
+		m.color = 0x87ceeb;
 	m.mlx = mlx_init();
 	m.win = mlx_new_window(m.mlx, WIN_W, WIN_H, "fdf");
 	read_file(&m, argv[1]);
