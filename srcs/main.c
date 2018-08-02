@@ -112,7 +112,7 @@ int			main(int argc, char **argv)
 	t_mlx	m;
 
 	if (argc != 3 && argc != 2)
-		ft_errorexit("usage: ./fdf <filename> [0x0x87ceeb]");
+		ft_errorexit("usage: ./fdf <filename> [color number]");
 	if (argc == 3)
 	{
 		m.color = (unsigned int)ft_atoi(argv[2]);

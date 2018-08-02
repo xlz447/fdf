@@ -6,7 +6,7 @@
 /*   By: xzhu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 22:43:11 by xzhu              #+#    #+#             */
-/*   Updated: 2018/07/25 22:43:40 by xzhu             ###   ########.fr       */
+/*   Updated: 2018/08/01 17:22:27 by xzhu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void	draw_line_color(t_mlx *m, t_line l, int z1, int z2)
 	e[0] = (x[0] > y[0] ? x[0] : -y[0]) / 2;
 	while (l.x1 != l.x2 || l.y1 != l.y2)
 	{
-		mlx_pixel_put(m->mlx, m->win, l.x1, l.y1, l.color + (z1 + z2) * (l.x2 - l.x1));
+		mlx_pixel_put(m->mlx, m->win, l.x1, l.y1,
+				l.color + (z1 + z2) * (l.x2 - l.x1));
 		e[1] = e[0];
 		e[1] > -x[0] ? e[0] -= y[0] : 1 == 1;
 		e[1] > -x[0] ? l.x1 += x[1] : 1 == 1;
